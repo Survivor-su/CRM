@@ -20,12 +20,12 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin
 public class WarehouseController {
     @Autowired
-    private WarehouseServiceImpl warehouseService;
+    private WarehouseServiceImpl service;
 
     @RequestMapping(value = "/warehouse", method = RequestMethod.GET)
     public RestResult<Warehouse> queryAll() {
         try {
-            return RestResult.success(0, "查询所有成功", warehouseService.list());
+            return RestResult.success(0, "查询所有成功", service.list());
         } catch (Exception e) {
             return RestResult.error(1, "查询所有失败");
         }
@@ -39,7 +39,7 @@ public class WarehouseController {
             wrapper.like("wh_name",keyword);
         }
         try {
-            return RestResult.success(0, "分页模糊查询成功", warehouseService.page(new Page<>(page, size), wrapper));
+            return RestResult.success(0, "分页模糊查询成功", service.page(new Page<>(page, size), wrapper));
         } catch (Exception e) {
             return RestResult.error(1, "分页模糊失败");
         }
@@ -53,7 +53,7 @@ public class WarehouseController {
             if (warehouse.getWhId() != null) {
                 throw new Exception("id不为空");
             }
-            if ((t = warehouseService.saveOrUpdate(warehouse))) {
+            if ((t = service.saveOrUpdate(warehouse))) {
                 return RestResult.success(0, "添加成功", t);
             } else {
                 return RestResult.success(0, "添加失败", t);
@@ -72,7 +72,7 @@ public class WarehouseController {
             if (warehouse.getWhId() == null) {
                 throw new Exception("id为空");
             }
-            if ((t = warehouseService.saveOrUpdate(warehouse))) {
+            if ((t = service.saveOrUpdate(warehouse))) {
                 return RestResult.success(0, "修改成功", t);
             } else {
                 return RestResult.success(0, "修改失败", t);
@@ -91,7 +91,7 @@ public class WarehouseController {
             if (whId == null) {
                 throw new Exception("id为空");
             }
-            if ((t = warehouseService.removeById(whId))) {
+            if ((t = service.removeById(whId))) {
                 return RestResult.success(0, "删除成功", t);
             } else {
                 return RestResult.error(1, "删除失败", t);
@@ -106,7 +106,7 @@ public class WarehouseController {
     @RequestMapping("/warehouse/{whId}")
     public RestResult findById(@PathVariable(value = "whId") Integer whId) {
         try {
-            return RestResult.success(0, "单个查询成功", warehouseService.getById(whId));
+            return RestResult.success(0, "单个查询成功", service.getById(whId));
         } catch (Exception e) {
             return RestResult.error(1, "单个查询失败");
         }
