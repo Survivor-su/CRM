@@ -1,7 +1,11 @@
 package com.warehousemanagementsystem.mapper;
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.warehousemanagementsystem.entity.Warehouse;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.*;
+
+import java.util.List;
 
 /**
  * <p>

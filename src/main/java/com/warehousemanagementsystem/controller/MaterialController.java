@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.*;
  * @author 子夕秋寒
  * @since 2022-10-19
  */
-@Controller
 @RestController
+@CrossOrigin
 public class MaterialController {
     @Autowired
     private MaterialServiceImpl service;

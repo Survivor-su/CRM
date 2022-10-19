@@ -1,8 +1,6 @@
 package com.warehousemanagementsystem.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -60,6 +58,11 @@ public class WarehouseArea implements Serializable {
     /**
      * 库区状态（0-未使用 1已使用）
      */
+    @TableLogic
     private Integer waStatus;
-
+    /**
+     * 外键对象
+     */
+    @TableField(exist = false)
+    private Warehouse warehouse;
 }
