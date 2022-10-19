@@ -26,7 +26,7 @@ public class WarehouseAreaController {
     public RestResult<WarehouseArea> queryByPage(@RequestParam(value = "page", defaultValue = "0") Integer page,
                                                  @RequestParam(defaultValue = "5") Integer size, @RequestParam(defaultValue = "") String keyword) {
         try {
-            return RestResult.success(0, "模糊查询分页成功", service.page(new Page<>(1, 5), new QueryWrapper<WarehouseArea>().like("wa_name", keyword)));
+            return RestResult.success(0, "模糊查询分页成功", service.page(new Page<>(page, size), new QueryWrapper<WarehouseArea>().like("wa_name", keyword)));
         } catch (Exception e) {
             return RestResult.error(1, "分页模糊查询失败" + e.getMessage());
         }

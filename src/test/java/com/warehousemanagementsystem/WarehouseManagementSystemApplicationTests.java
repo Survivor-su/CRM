@@ -20,7 +20,7 @@ class WarehouseManagementSystemApplicationTests {
     void contextLoads() {
         // System.out.println(controller.queryAll());
         // System.out.println(warehouseService.list());
-        System.out.println(warehouseAreaController.queryByPage(null, null, ""));
+        System.out.println(warehouseAreaController.queryByPage(1, 5, ""));
     }
 
 }
