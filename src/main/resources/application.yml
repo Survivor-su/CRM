@@ -1,9 +1,20 @@
+#冒号后面需要加空格
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/erpdb?serverTimezone=Asia/Chongqing
     username: root
     password: 123456
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  mail:
+    #    smtp服务器,网页点163,QQ点qq
+    host: smtp.163.com
+    #    邮箱账号
+    username: Survivor_su@163.com
+    #    授权码
+    password: SMFGTGPJSOLSHCRF
 server:
   port: 9090
 mybatis-plus:

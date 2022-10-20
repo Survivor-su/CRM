@@ -34,15 +34,25 @@ public class WarehouseAreaController {
 
     @PutMapping("warehouseArea")
     public RestResult updata(WarehouseArea warehouseArea) {
+        String title;
+        if (warehouseArea.getWaStatus() == 0) {
+            title = "停用";
+        } else if (warehouseArea.getWaStatus() == 1) {
+            title = "启用";
+        } else {
+            warehouseArea.setWaStatus(null);
+            System.out.println(warehouseArea);
+            title = "修改";
+        }
         try {
             boolean t = service.saveOrUpdate(warehouseArea);
             if (t) {
-                return RestResult.success(0, "修改成功", t);
+                return RestResult.success(0, title + "成功", t);
             } else {
-                return RestResult.success(1, "修改失败", t);
+                return RestResult.success(1, title + "失败", t);
             }
         } catch (Exception e) {
-            return RestResult.error(1, "修改异常" + e.getMessage());
+            return RestResult.error(1, title + "异常" + e.getMessage());
         }
     }
 

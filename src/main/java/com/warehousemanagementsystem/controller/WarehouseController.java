@@ -5,6 +5,9 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.warehousemanagementsystem.entity.RestResult;
 import com.warehousemanagementsystem.entity.Warehouse;
 import com.warehousemanagementsystem.service.impl.WarehouseServiceImpl;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,10 +21,12 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @CrossOrigin
+@Api(tags = "仓库warehouse模块")
 public class WarehouseController {
     @Autowired
     private WarehouseServiceImpl service;
 
+    @ApiOperation(value = "条件分页查询", notes = "详细描述")
     @RequestMapping(value = "/warehouse", method = RequestMethod.GET)
     public RestResult<Warehouse> queryAll() {
         try {
@@ -33,10 +38,10 @@ public class WarehouseController {
 
     //模糊分页
     @RequestMapping(value = "/warehousePage", method = RequestMethod.GET)
-    public RestResult<Warehouse> queryByPage(@RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue = "5") Integer size,String keyword) {
+    public RestResult<Warehouse> queryByPage(@RequestParam(defaultValue = "1") @ApiParam(value = "当前页数默认为1") Integer page, @ApiParam(value = "每页显示记录数") @RequestParam(defaultValue = "5") Integer size, String keyword) {
         QueryWrapper<Warehouse> wrapper = new QueryWrapper<>();
         if (keyword != null) {
-            wrapper.like("wh_name",keyword);
+            wrapper.like("wh_name", keyword);
         }
         try {
             return RestResult.success(0, "分页模糊查询成功", service.page(new Page<>(page, size), wrapper));
@@ -46,8 +51,9 @@ public class WarehouseController {
     }
 
     //    添加
+    @ApiOperation(value = "添加", notes = "详细描述")
     @RequestMapping(value = "/warehouse", method = RequestMethod.POST)
-    public RestResult insert(Warehouse warehouse) {
+    public RestResult insert(@ApiParam(value = "完整的warehouse对象",required = true) Warehouse warehouse) {
         boolean t;
         try {
             if (warehouse.getWhId() != null) {

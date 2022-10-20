@@ -58,7 +58,7 @@ public class WarehouseArea implements Serializable {
     /**
      * 库区状态（0-未使用 1已使用）
      */
-    @TableLogic
+    // @TableLogic
     private Integer waStatus;
     /**
      * 外键对象

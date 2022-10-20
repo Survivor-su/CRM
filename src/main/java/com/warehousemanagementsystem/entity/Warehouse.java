@@ -2,19 +2,23 @@ package com.warehousemanagementsystem.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import io.swagger.annotations.ApiOperation;
 import lombok.Data;
 
 import java.io.Serializable;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author 子夕秋寒
  * @since 2022-10-14
  */
 @Data
+@ApiModel
 public class Warehouse implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -33,6 +37,7 @@ public class Warehouse implements Serializable {
     /**
      * 利润中心
      */
+    @ApiModelProperty(value = "利润中心")
     private String whProfitCenter;
 
     /**
@@ -49,5 +54,6 @@ public class Warehouse implements Serializable {
      * 备注
      */
     private String whNotes;
+
 
 }
