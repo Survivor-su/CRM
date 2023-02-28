@@ -19,7 +19,7 @@ public class SendMailController {
     //@Value("${配置文件中的某个关键字})得到配置文件文件中的某个值
     @Value("${spring.mail.username}")
     private String sender;
-
+    // @Scheduled(cron = "0 30 8 L * ?")
     @RequestMapping(value = "send_mail")
     public RestResult sendMail(
             String subject,

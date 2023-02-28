@@ -34,7 +34,7 @@ public class RestResult<T> {
         return new RestResult(code, msg, list);
     }
 
-    public static <T> RestResult success(Integer code, String msg) {
+    public static  RestResult success(Integer code, String msg) {
         return new RestResult(code, msg);
     }
 

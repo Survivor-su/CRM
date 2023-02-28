@@ -15,8 +15,12 @@ spring:
     username: Survivor_su@163.com
     #    授权码
     password: SMFGTGPJSOLSHCRF
+  redis:
+    host: localhost
+    port: 6379
 server:
   port: 9090
+  
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

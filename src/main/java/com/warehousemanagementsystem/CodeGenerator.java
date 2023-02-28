@@ -19,7 +19,7 @@ public class CodeGenerator {
                     // .xml("mapper.xml") //映射文件的包名(如果要生成的话，加上这句，去掉下面的.xml方法)
                     // .entity("entity"); //实体类的包名
                 }).strategyConfig(builder -> {
-                    builder.addInclude("warehouse_area")  //***设置需要生成的表名
+                    builder.addInclude("output_record")  //***设置需要生成的表名
                             .controllerBuilder();//只生成Controller
                     //.enableRestStyle(); //生成的Controller类添加@RestController;
                 }).templateConfig(builder -> {

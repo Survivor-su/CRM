@@ -6,7 +6,6 @@ import com.warehousemanagementsystem.entity.Material;
 import com.warehousemanagementsystem.entity.RestResult;
 import com.warehousemanagementsystem.service.impl.MaterialServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -54,6 +53,34 @@ public class MaterialController {
             }
         } catch (Exception e) {
             return RestResult.success(1, "添加失败" + e.getMessage());
+        }
+    }
+
+    @PutMapping("material")
+    public RestResult updata(Material material) {
+        try {
+            return RestResult.success(0, "修改物料成功", service.saveOrUpdate(material));
+        } catch (Exception e) {
+            return RestResult.success(0, "修改物料失败" + e.getMessage());
+        }
+    }
+
+    //    删除
+    @RequestMapping(value = "/material/{whId}", method = RequestMethod.DELETE)
+    public RestResult delete(@PathVariable("whId") Integer whId) {
+        boolean t;
+        try {
+            if (whId == null) {
+                throw new Exception("id为空");
+            }
+            if ((t = service.removeById(whId))) {
+                return RestResult.success(0, "删除成功", t);
+            } else {
+                return RestResult.error(1, "删除失败", t);
+            }
+
+        } catch (Exception e) {
+            return RestResult.error(1, "删除异常" + e.getMessage());
         }
     }
 }

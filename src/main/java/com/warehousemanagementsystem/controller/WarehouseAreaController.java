@@ -22,6 +22,15 @@ public class WarehouseAreaController {
     @Autowired
     private WarehouseAreaServiceImpl service;
 
+    @RequestMapping(value = "warehouseArea", method = RequestMethod.GET)
+    public RestResult groupQueryAll() {
+        try {
+            return RestResult.success(0, "查询所有库区成功", service.list());
+        } catch (Exception e) {
+            return RestResult.error(1, "查询所有库区失败");
+        }
+    }
+
     @GetMapping("warehouseAreaPage")
     public RestResult<WarehouseArea> queryByPage(@RequestParam(value = "page", defaultValue = "0") Integer page,
                                                  @RequestParam(defaultValue = "5") Integer size, @RequestParam(defaultValue = "") String keyword) {

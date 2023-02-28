@@ -74,6 +74,28 @@
             <version>2.7.4</version>
         </dependency>
 
+        <!--        Redis依赖-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+            <version>2.7.4</version>
+        </dependency>
+
+        <!--token(jwt)验证-->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>0.9.1</version>
+        </dependency>
+
+        <!--jdk比1.8高的版本jwt需配合该依赖-->
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.3.1</version>
+        </dependency>
+
+
     </dependencies>
 
     <build>
