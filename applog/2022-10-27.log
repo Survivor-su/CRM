@@ -1,0 +1,8 @@
+[INFO] 2022-10-27 16:47:43 - Starting WarehouseManagementSystemApplication v0.0.1-SNAPSHOT using Java 17.0.3.1 on DESKTOP-GLTGS39 with PID 15300 (C:\Users\24890\Desktop\上课\项目一.ERP\Dev\target\warehouseManagementSystem-0.0.1-SNAPSHOT.jar started by Survivor in C:\Users\24890\Desktop\上课\项目一.ERP\Dev\target)
+[INFO] 2022-10-27 16:47:43 - No active profile set, falling back to 1 default profile: "default"
+[INFO] 2022-10-27 16:47:45 - Initializing ProtocolHandler ["http-nio-9090"]
+[INFO] 2022-10-27 16:47:45 - Starting service [Tomcat]
+[INFO] 2022-10-27 16:47:45 - Starting Servlet engine: [Apache Tomcat/9.0.65]
+[INFO] 2022-10-27 16:47:45 - Initializing Spring embedded WebApplicationContext
+[INFO] 2022-10-27 16:47:47 - Starting ProtocolHandler ["http-nio-9090"]
+[INFO] 2022-10-27 16:47:48 - Started WarehouseManagementSystemApplication in 5.606 seconds (JVM running for 6.324)
